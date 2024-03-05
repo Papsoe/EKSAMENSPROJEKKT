@@ -1,4 +1,5 @@
 // Dette er en Processing-fil (.pde), der også understøtter Java-kode.
+//hej
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 SearchBar searchBar;
