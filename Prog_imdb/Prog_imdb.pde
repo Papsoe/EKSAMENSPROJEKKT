@@ -19,21 +19,22 @@ void setup() {
   // Initialiseringskode, kaldes én gang ved start
   size(800, 600);
   searchBar = new SearchBar(width/2, height/5, 200, 30);
+  movies = new ArrayList<Movie>();
 
-  table = loadTable("Movie.csv", "header");
+  table = loadTable("IMDB.csv", "header");
   DataTable dataTable = new DataTable(table);
   dataTable.display();
-  
+
   // Gem data som en streng
   tableAsString = tableToString(table);
-  
+
   // Udskriv tabellen som en streng
   println(tableAsString);
 
-  movies = new ArrayList<Movie>();
-  movies.add(new Movie("Inception"));
-  movies.add(new Movie("The Dark Knight"));
-  movies.add(new Movie("Interstellar"));
+  for (int i=0; i < table.getRowCount(); i++) {
+    TableRow row = table.getRow(i);
+    movies.add(new Movie(row.getString("Name")));
+  }
 }
 
 
@@ -86,4 +87,19 @@ void displaySearchResults() {
   } else if (!searchTerm.isEmpty()) {
     text("Ingen resultater", 300, 100);
   }
+}
+
+String tableToString(Table table) {
+  String result = "";
+  for (int i = 0; i < table.getRowCount(); i++) {
+    TableRow row = table.getRow(i);
+    for (int j = 0; j < table.getColumnCount(); j++) {
+      if (j > 0) {
+        result += ", ";
+      }
+      result += row.getString(j);
+    }
+    result += "\n";
+  }
+  return result;
 }

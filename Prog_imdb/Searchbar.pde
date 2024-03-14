@@ -31,7 +31,7 @@ class SearchBar {
     if (coded) {
       if (key == BACKSPACE && inputText.length() > 0) {
         inputText = inputText.substring(0, inputText.length() - 1);
-      } else if (key != ENTER) {
+      } else if (key != ENTER && key != BACKSPACE) {
         inputText += key;
       }
     }
