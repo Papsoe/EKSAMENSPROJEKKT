@@ -1,4 +1,3 @@
-
 // Søgebjælkeklasse
 class SearchBar {
   float x, y, w, h;
@@ -32,7 +31,7 @@ class SearchBar {
     if (coded) {
       if (key == BACKSPACE && inputText.length() > 0) {
         inputText = inputText.substring(0, inputText.length() - 1);
-      } else if (key != RETURN && key != ENTER && key != BACKSPACE) {
+      } else if (key != ENTER) {
         inputText += key;
       }
     }

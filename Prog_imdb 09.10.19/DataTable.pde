@@ -1,4 +1,3 @@
-
 class DataTable {
   Table table;
   int rowCount;
@@ -27,4 +26,19 @@ class DataTable {
       }
     }
   }
+}
+
+String tableToString(Table table) {
+  String result = "";
+  for (int i = 0; i < table.getRowCount(); i++) {
+    TableRow row = table.getRow(i);
+    for (int j = 0; j < table.getColumnCount(); j++) {
+      if (j > 0) {
+        result += ", ";
+      }
+      result += row.getString(j);
+    }
+    result += "\n";
+  }
+  return result;
 }
