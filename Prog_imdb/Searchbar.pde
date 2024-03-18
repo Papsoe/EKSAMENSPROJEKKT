@@ -5,7 +5,7 @@ class SearchBar {
   String inputText = "";
   boolean coded = false;
 
- SearchBar(float xPos, float yPos, float width, float height) {
+  SearchBar(float xPos, float yPos, float width, float height) {
     x = xPos;
     y = yPos;
     w = width;
@@ -32,7 +32,7 @@ class SearchBar {
     if (coded) {
       if (key == BACKSPACE && inputText.length() > 0) {
         inputText = inputText.substring(0, inputText.length() - 1);
-      } else if (key != RETURN && key != ENTER && key != BACKSPACE) {
+      } else if (keyCode != RETURN && key != ENTER && key != BACKSPACE && key != SHIFT) {
         inputText += key;
       }
     }

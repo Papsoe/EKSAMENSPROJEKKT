@@ -18,7 +18,9 @@ String tableAsString = "";
 void setup() {
   // Initialiseringskode, kaldes én gang ved start
   size(800, 600);
+
   searchBar = new SearchBar(width/2.8, height/4, 200, 30);
+
   movies = new ArrayList<Movie>();
 
   table = loadTable("IMDB.csv", "header");
@@ -48,7 +50,7 @@ void draw() {
   textAlign(CENTER);
 
   // Viser en besked på skærmen
-  text("Velkommen til din IMDb-lignende hjemmeside!", width/2, height/10);
+  text("Søg film", width/2, height/10);
 }
 void keyPressed() {
   searchBar.keyPressed();
