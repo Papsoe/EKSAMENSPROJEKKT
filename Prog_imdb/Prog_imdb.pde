@@ -1,5 +1,7 @@
-// Dette er en Processing-fil (.pde), der også understøtter Java-kode.
+  // Dette er en Processing-fil (.pde), der også understøtter Java-kode.
 //hej
+tabManager manager;
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 SearchBar searchBar;
@@ -16,6 +18,11 @@ Table table;
 String tableAsString = "";
 
 void setup() {
+   manager = new tabManager();
+  manager.tilFoejGameState("movieTab", new movieTab());
+  manager.skiftMovie("movieTab");
+  
+  
   // Initialiseringskode, kaldes én gang ved start
   size(800, 600);
 
@@ -41,6 +48,7 @@ void setup() {
 
 
 void draw() {
+  manager.draw();
   // Kode til at tegne, opdateres kontinuerligt
   background(255); // Hvid baggrund
   searchBar.display();
@@ -60,6 +68,9 @@ void mousePressed() {
   searchBar.mousePressed();
 }
 
+void mouseReleased() {
+  manager.currentGameState.musKlikked();
+}
 
 /*void displaySearchResults() {
   // Hent søgeordet fra søgebjælken
